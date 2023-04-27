@@ -1,6 +1,3 @@
-
-
-
 alert("El precio total es de: " + getTotal() + "€")
 
 function getTotal() : number{
