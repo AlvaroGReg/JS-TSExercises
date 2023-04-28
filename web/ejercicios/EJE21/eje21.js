@@ -1,7 +1,7 @@
 function calcular() {
-    var aValue = document.getElementById("numA").value;
-    var bValue = document.getElementById("numB").value;
-    var cValue = document.getElementById("numC").value;
+    var aValue = parseInt(document.getElementById("numA").value, 10);
+    var bValue = parseInt(document.getElementById("numB").value, 10);
+    var cValue = parseInt(document.getElementById("numC").value, 10);
     var xValuePlus;
     var xValueMinus;
     var rValue = bValue * bValue - 4 * aValue * cValue;
