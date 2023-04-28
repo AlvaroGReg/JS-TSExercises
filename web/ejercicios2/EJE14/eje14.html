@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calcular precio billete</title>
+</head>
+
+<body>
+    <p>Le informamos que el precio es de 0.3€ el kilómetro.</p>
+    <label for="kiloms">Kilómetros de su viaje:</label>
+    <input type="number" name="kiloms" id="inputKiloms">
+
+    <p>Se realizará un 15% de descuento para recorridos de larga distancia (>80km).</p>
+    <br>
+
+    <p>Los días laborables obtendrá un 5% de descuento adicional.</p>
+    <label for="laborable">Laborable</label>
+    <input type="radio" name="dayType" value="laborable">
+    <label for="festivo">Festivo</label>
+    <input type="radio" name="dayType" value="festivo" checked>
+
+<div>
+    <br>
+    <button onclick="consultar()">Consultar precio</button>
+</div>
+
+</body>
+<script src="eje14.js"></script>
+</html>
