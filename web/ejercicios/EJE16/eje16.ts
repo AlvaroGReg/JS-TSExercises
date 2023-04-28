@@ -7,6 +7,7 @@ LEER contador
 ACABAR CONDICIÓN
 ACABAR
 */
-for (var n = 0; n < 21; n++) {
-    document.write(n.toString() + " ");
+
+for(let n : number = 0; n<21; n++){
+    document.write(n.toString() + " ")
 }

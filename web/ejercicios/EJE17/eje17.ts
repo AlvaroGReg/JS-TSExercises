@@ -4,7 +4,8 @@ INICIO
         ESCRIBIR "cuadrado de " numero "es" numero*numero
     FIN DESDE
 FIN
-*/
-for (var n = 1; n < 11; n++) {
-    document.write("El cuadrado de ".concat(n, " es ").concat(n * n, ".<br><br>"));
+*/ 
+
+for(let n = 1; n<11; n++){
+    document.write(`El cuadrado de ${n} es ${n*n}.<br><br>`)
 }
