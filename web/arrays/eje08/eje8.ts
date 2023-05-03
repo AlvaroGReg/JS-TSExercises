@@ -8,14 +8,14 @@ let stringTwo:    string   = " "
 let stringThree:  string   = " "
 
 //Rellenar arrays 1 y 2
-for(let n=0; n<10; n++){
+for(let n = 0; n < 10; n++){
 
     arrayOne[n] = Math.floor(Math.random()*10)
     arrayTwo[n] = Math.floor(Math.random()*10)
 }
 
 //Sumar arrays
-for(let n=0; n<10; n++){
+for(let n = 0; n < 10; n++){
     arrayThree[n] = arrayOne[n]   + arrayTwo[n]
     stringOne    += arrayOne[n]   + " "
     stringTwo    += arrayTwo[n]   + " "
