@@ -1,0 +1,31 @@
+/* LEER 10 NÚMEROS, ALMACENARLOS EN UN ARRAY Y ORDENARLOS DE FORMA ASCENDENTE*/
+
+//Genero el array y lo cargo con 10 números aleatorios
+let newArray: number[] = new Array(10)
+
+for (let n = 0; n < newArray.length; n++){
+    newArray[n] = Math.floor((Math.random() * 49) + 1)
+}
+
+//Console printing
+console.log ("Array sin ordenar")
+console.log (newArray)
+sortArray   (newArray)
+console.log ("Array ordenado")
+console.log (newArray)
+
+//Método para ordenar (sin Array.sort)
+//si el index es menor que el siguiente lo pasamos al final con splice()
+function sortArray(arrayToSort: any[]): boolean{
+
+    for (let n = 0; n < arrayToSort.length; n++){
+
+        if (arrayToSort[n] < arrayToSort[n+1]){
+            
+            const savedIndex: any[] = arrayToSort.splice(n,1)
+            arrayToSort.splice(arrayToSort.length, 0, savedIndex[0])
+            sortArray(arrayToSort)
+        }
+    }
+    return true;
+}
