@@ -31,11 +31,10 @@ console.log(primesArray)
 bubbleSort(primesArray)
 
 // Optimized bubble sort
-function bubbleSort(arr : any[]) {
+function bubbleSort(arr: any[]) {
   
-    var len = arr.length;
-  
-    var isSwapped = false;
+    var len:       number  = arr.length;
+    var isSwapped: boolean = false;
   
     for (let i = 0; i < len; i++) {
   
@@ -51,7 +50,6 @@ function bubbleSort(arr : any[]) {
                 isSwapped   = true;
             }
         }
-   
         if (!isSwapped) {
             break;
         }
