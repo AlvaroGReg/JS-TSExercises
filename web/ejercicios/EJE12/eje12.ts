@@ -3,7 +3,7 @@ let total:   number = 0
 let count:   number = 0
 
 do{
-    let newNum : number = parseInt(prompt('Introduzca un número')!,10)
+    let newNum: number = parseInt(prompt('Introduzca un número')!,10)
     total = total + newNum
     count++
     checkin = prompt('Quiere introducir más números? "N" para parar el programa.')!

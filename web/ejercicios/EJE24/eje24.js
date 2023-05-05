@@ -1,5 +1,5 @@
 /*PROGRAMA QUE PIDE HORAS MINUTOS Y SEGUNDOS Y DEVUELVE LA MISMA HORA CON UN SEGUNDO MÁS*/
-function calculate() {
+function addSecond() {
     var clock = document.getElementById('timeInput');
     var hourString = clock.value;
     var hourArray = hourString.split(":");

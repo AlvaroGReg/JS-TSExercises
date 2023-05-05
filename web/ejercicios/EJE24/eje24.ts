@@ -1,6 +1,6 @@
 /*PROGRAMA QUE PIDE HORAS MINUTOS Y SEGUNDOS Y DEVUELVE LA MISMA HORA CON UN SEGUNDO MÁS*/
 
-function calcular(): void{
+function addSecond(): void{
     let clock                    = (document.getElementById('timeInput')as HTMLInputElement)
     let hourString:     string   = clock.value
     let hourArray:      string[] = hourString.split(":")
