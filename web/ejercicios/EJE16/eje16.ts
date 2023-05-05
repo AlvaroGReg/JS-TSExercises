@@ -8,6 +8,6 @@ ACABAR CONDICIÓN
 ACABAR
 */
 
-for(let n : number = 0; n<21; n++){
+for(let n = 0; n < 21; n++){
     document.write(n.toString() + " ")
 }

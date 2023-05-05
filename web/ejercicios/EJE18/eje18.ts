@@ -9,16 +9,21 @@ LEER numero
 numero "es primo"
 FINAL
 */
-let numPrimo: number
-let checkedPrimo : boolean = false
+let numPrimo:     number
+let checkedPrimo: boolean = false
 
 numPrimo = parseInt(prompt("Introduzca un número >0")!, 10)
 
 if (!Number.isNaN(numPrimo)) {
+
     let numsToCheck : number = numPrimo/2
-    for(let n=2; n<numsToCheck; n++){
+
+    for (let n = 2; n < numsToCheck; n++){
+
         console.log(n)
-        if(numPrimo%n==0){
+
+        if (numPrimo%n == 0){
+            
             checkedPrimo = true
             break;
         }

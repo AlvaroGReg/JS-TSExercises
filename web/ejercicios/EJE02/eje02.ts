@@ -1,9 +1,9 @@
 alert("Introduce dos números para que le programa te diga cuál es mayor.")
 
-let num1 : number = getNumber()
-let num2 : number = getNumber()
+let num1: number = getNumber()
+let num2: number = getNumber()
 
-if(num1>num2){
+if (num1>num2){
     alert("El mayor número de los dos es " + num1)
 }else{
     alert("El mayor número de los dos es " + num2)

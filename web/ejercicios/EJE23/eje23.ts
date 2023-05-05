@@ -1,17 +1,17 @@
-let marks : number[] = []
+let marks:          number[] = []
+let countApproval:  number = 0
+let countFails:     number = 0
+let totalGeneral:   number = 0
+let totalApproval:  number = 0
+let totalFails:     number = 0
 
-let countApproval : number = 0
-let countFails : number = 0
-let totalGeneral : number = 0
-let totalApproval : number = 0
-let totalFails : number = 0
+for (let n = 0; n < 50; n++){
 
-for(let n = 0; n<50; n++){
     var newMark : number = (Math.random()*10)
-    marks[n] = newMark
+    marks[n]      = newMark
     totalGeneral += newMark
 
-    if(newMark<5){
+    if (newMark < 5){
         countFails++
         totalFails+=newMark
     }else{
@@ -19,7 +19,7 @@ for(let n = 0; n<50; n++){
         totalApproval+=newMark
     }
 }
-console.log(marks)
+console.log   (marks)
 document.write('Alumnos examinados: ' + marks.length +'<br>')
 document.write('Alumnos aprobados: ' + countApproval +'<br>')
 document.write('Alumnos suspensos: ' + countFails +'<br>')

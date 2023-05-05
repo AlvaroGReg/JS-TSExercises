@@ -4,15 +4,15 @@ DE FORMA DESCENDENTE POR EL MÉTODO BUBBLE*/
 let baseArray: number[] = new Array(20);
 
 for (let n = 0; n < baseArray.length; n++) {
-  baseArray[n] = Math.floor(Math.random()*100);
+  baseArray[n] = Math.floor(Math.random()*100)
 }
 
 console.log (baseArray)
-sortArray   (baseArray)
+arraySort   (baseArray)
 console.log (baseArray)
 
 //Sort mediante bubble sort
-function sortArray(arrayToSort: any[]): void {
+function arraySort(arrayToSort: any[]): void {
 
   for (let n = 0; n < arrayToSort.length; n++) {
 

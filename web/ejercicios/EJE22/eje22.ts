@@ -1,6 +1,6 @@
-let sumaTotal : number = 0
+let sumaTotal: number = 0
 
-for(let n=1; n<101; n++){
+for (let n = 1; n < 101; n++){
     sumaTotal += n
 }
 

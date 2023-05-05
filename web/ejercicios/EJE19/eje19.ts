@@ -9,8 +9,9 @@ FINAL
 */
 
 function preguntaMes(): void {
+
   while (true) {
-    let mesNum: number;
+    let   mesNum:    number;
     const mesString: string | null = prompt(
       "Introduzca un número entre 1 y 12"
     );

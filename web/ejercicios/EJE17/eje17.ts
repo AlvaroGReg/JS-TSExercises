@@ -6,6 +6,6 @@ INICIO
 FIN
 */ 
 
-for(let n = 1; n<11; n++){
+for (let n = 1; n < 11; n++){
     document.write(`El cuadrado de ${n} es ${n*n}.<br><br>`)
 }

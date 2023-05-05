@@ -21,10 +21,10 @@ while (index < 50) {
 
     if (isPrime) {
         primesArray[index] = newNum;
-        index++;
+        index++
     }
 
-    newNum++;
+    newNum++
 }
 
 console.log(primesArray)
@@ -33,8 +33,8 @@ bubbleSort(primesArray)
 // Optimized bubble sort
 function bubbleSort(arr: any[]) {
   
-    var len:       number  = arr.length;
-    var isSwapped: boolean = false;
+    var len:       number  = arr.length
+    var isSwapped: boolean = false
   
     for (let i = 0; i < len; i++) {
   
@@ -45,13 +45,13 @@ function bubbleSort(arr: any[]) {
             if (arr[j] < arr[j + 1]) {
 
                 var temp    = arr[j]
-                arr[j]      = arr[j + 1];
-                arr[j + 1]  = temp;
-                isSwapped   = true;
+                arr[j]      = arr[j + 1]
+                arr[j + 1]  = temp
+                isSwapped   = true
             }
         }
         if (!isSwapped) {
-            break;
+            break
         }
     }
   
