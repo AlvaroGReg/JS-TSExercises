@@ -1,7 +1,7 @@
 /* LEER 10 NÚMEROS, ALMACENARLOS EN UN ARRAY Y ORDENARLOS DE FORMA ASCENDENTE*/
 
 //Genero el array y lo cargo con 10 números aleatorios
-let newArray: number[] = new Array(10)
+var newArray: number[] = new Array(10)
 
 for (let n = 0; n < newArray.length; n++){
     newArray[n] = Math.floor((Math.random() * 49) + 1)

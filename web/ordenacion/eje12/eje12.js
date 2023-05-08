@@ -11,6 +11,7 @@ sortArray(newArray);
 console.log("Array ordenado");
 console.log(newArray);
 //Método para ordenar (sin Array.sort)
+//si el index es menor que el siguiente lo pasamos al final con splice()
 function sortArray(arrayToSort) {
     for (var n = 0; n < arrayToSort.length; n++) {
         if (arrayToSort[n] < arrayToSort[n + 1]) {
