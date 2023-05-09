@@ -19,13 +19,13 @@ for (var n = 0; n < cols; n++) {
 console.log("Consultar consola para ver resultados");
 console.log(arrayToSort);
 //ORDER BY COLS AND ROWS
-for (var i = 0; i < arrayRows.length; i++) {
-    for (var j = 0; j < arrayRows[i].length - 1; j++) {
-        for (var k = 0; k < arrayRows[i].length - j - 1; k++) {
-            if (arrayRows[i][k] > arrayRows[i][k + 1]) {
-                var temp = arrayRows[i][k];
-                arrayRows[i][k] = arrayRows[i][k + 1];
-                arrayRows[i][k + 1] = temp;
+for (var i = 0; i < arrayCols.length; i++) {
+    for (var j = 0; j < arrayCols[i].length - 1; j++) {
+        for (var k = 0; k < arrayCols[i].length - j - 1; k++) {
+            if (arrayCols[i][k] > arrayCols[i][k + 1]) {
+                var temp = arrayCols[i][k];
+                arrayCols[i][k] = arrayCols[i][k + 1];
+                arrayCols[i][k + 1] = temp;
             }
         }
     }

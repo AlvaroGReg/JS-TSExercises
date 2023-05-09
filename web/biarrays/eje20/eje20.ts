@@ -5,7 +5,6 @@ let arrayCols:   number[][] = []
 let arrayRows:   number[][] = []
 let cols:        number     = 8
 let rows:        number     = 4
-//FILL
 
 //FILLARRAY
 for (let n = 0; n < cols; n++){
@@ -24,17 +23,17 @@ console.log(arrayToSort)
 
 //ORDER BY COLS AND ROWS
 
-for (let i = 0; i < arrayRows.length; i++) {
+for (let i = 0; i < arrayCols.length; i++) {
 
-    for (let j = 0; j < arrayRows[i].length - 1; j++) {
+    for (let j = 0; j < arrayCols[i].length - 1; j++) {
 
-      for (let k = 0; k < arrayRows[i].length - j - 1; k++) {
+      for (let k = 0; k < arrayCols[i].length - j - 1; k++) {
 
-        if (arrayRows[i][k] > arrayRows[i][k + 1]) {
+        if (arrayCols[i][k] > arrayCols[i][k + 1]) {
 
-          let temp = arrayRows[i][k]
-          arrayRows[i][k] = arrayRows[i][k + 1]
-          arrayRows[i][k + 1] = temp
+          let temp = arrayCols[i][k]
+          arrayCols[i][k] = arrayCols[i][k + 1]
+          arrayCols[i][k + 1] = temp
         }
       }
     }
@@ -49,7 +48,7 @@ for (let i = 0; i < arrayRows[0].length; i++) {
     for (let k = 0; k < arrayRows.length - j - 1; k++) {
 
       if (arrayRows[k][i] > arrayRows[k + 1][i]) {
-        
+
         let temp = arrayRows[k][i];
         arrayRows[k][i] = arrayRows[k + 1][i];
         arrayRows[k + 1][i] = temp;

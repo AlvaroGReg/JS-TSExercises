@@ -1,5 +1,10 @@
-var media = (getNumber(), getNumber(), getNumber()) / 3;
+var media = (getANumber("Introduce el valor del primer número"),
+    getANumber("Introduce el valor del segundo número"),
+    getANumber("Introduce el valor del tercer número")) / 3;
 document.write('Programa que calcula la media de 3 números <br><br>', "La media de los números introducidos es ->", media.toFixed(2), "<br><br>", "Se terminó.");
-function getANumber() {
-    return parseInt(prompt("Introduce el valor del primer número", "numero"), 10);
+function getANumber(mensaje) {
+    do {
+        var numberInput = parseInt(prompt(mensaje), 10);
+    } while (isNaN(numberInput));
+    return numberInput;
 }
