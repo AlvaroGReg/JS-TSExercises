@@ -1,14 +1,14 @@
 let media: number =
-                (getANumber("Introduce el valor del primer número") +
-            getANumber("Introduce el valor del segundo número") +
-            getANumber("Introduce el valor del tercer número"))/3
+                (getrNumber("Introduce el valor del primer número") +
+            getrNumber("Introduce el valor del segundo número") +
+            getrNumber("Introduce el valor del tercer número"))/3
 
 document.write(
     'Programa que calcula la media de 3 números <br><br>',
     "La media de los números introducidos es ->"
     ,media.toFixed(2),"<br><br>", "Se terminó.")
 
-    function getANumber(mensaje: string): number{
+    function getrNumber(mensaje: string): number{
     
         do{
     
