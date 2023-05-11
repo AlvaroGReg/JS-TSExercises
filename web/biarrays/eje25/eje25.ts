@@ -10,56 +10,56 @@ f-Alumno con peores notas*/
 //Declaro lo que es un Alumno y creo una lista de 50 nombres
 type Alumno = { id: number; nombre: string; nota: number };
 const nombres: string[] = [
-  "Juan",
-  "Carlos",
-  "Ana",
-  "María",
-  "Pedro",
-  "Marta",
-  "Luis",
-  "Laura",
-  "Diego",
-  "Lucía",
-  "Ricardo",
-  "Isabel",
-  "Jorge",
-  "Pablo",
-  "Sofía",
-  "Fernando",
-  "Natalia",
-  "Alejandro",
-  "Cristina",
-  "Esteban",
-  "Elena",
-  "Gonzalo",
-  "Silvia",
-  "Guillermo",
-  "Raquel",
-  "Roberto",
-  "Adriana",
-  "Miguel",
-  "Patricia",
-  "Manuel",
-  "Inés",
-  "Alberto",
-  "Teresa",
-  "Santiago",
-  "Olga",
-  "Andrés",
-  "Beatriz",
-  "Álvaro",
-  "Carmen",
-  "David",
-  "Clara",
-  "José",
-  "Daniela",
-  "Ignacio",
-  "Lucas",
-  "Marina",
-  "Francisco",
-  "Victoria",
-  "Antonio",
-  "Rosa",
+	"Juan",
+	"Carlos",
+	"Ana",
+	"María",
+	"Pedro",
+	"Marta",
+	"Luis",
+	"Laura",
+	"Diego",
+	"Lucía",
+	"Ricardo",
+	"Isabel",
+	"Jorge",
+	"Pablo",
+	"Sofía",
+	"Fernando",
+	"Natalia",
+	"Alejandro",
+	"Cristina",
+	"Esteban",
+	"Elena",
+	"Gonzalo",
+	"Silvia",
+	"Guillermo",
+	"Raquel",
+	"Roberto",
+	"Adriana",
+	"Miguel",
+	"Patricia",
+	"Manuel",
+	"Inés",
+	"Alberto",
+	"Teresa",
+	"Santiago",
+	"Olga",
+	"Andrés",
+	"Beatriz",
+	"Álvaro",
+	"Carmen",
+	"David",
+	"Clara",
+	"José",
+	"Daniela",
+	"Ignacio",
+	"Lucas",
+	"Marina",
+	"Francisco",
+	"Victoria",
+	"Antonio",
+	"Rosa",
 ];
 
 //Hago una lista con 20 alumnos con nombres y notas aleatorias
@@ -67,13 +67,13 @@ let cantidadDeAlumnos: number = 20;
 let alumnosArray: Alumno[] = new Array(cantidadDeAlumnos);
 
 for (let n = 0; n < cantidadDeAlumnos; n++) {
-  let newAlumno: Alumno = {
-    id: n + 1,
-    nombre: nombres[Math.floor(Math.random() * nombres.length)],
-    nota: Math.floor(Math.random() * 11),
-  };
+	let newAlumno: Alumno = {
+		id: n + 1,
+		nombre: nombres[Math.floor(Math.random() * nombres.length)],
+		nota: Math.floor(Math.random() * 11),
+	};
 
-  alumnosArray[n] = newAlumno;
+	alumnosArray[n] = newAlumno;
 }
 
 //Se ejecuta la iniciar el programa
@@ -84,172 +84,174 @@ calcMedia();
 //MÉTODOS DEL PROGRAMA
 
 //Generamos/Actualizamos datos de la tabla Y EL SELECTOR DE CAMBIAR NOTA
-function cargarTabla() {
-  const tabla = document.getElementById("tablealumnos") as HTMLTableElement;
-  const selector = document.getElementById(
-    "alumnosselector"
-  ) as HTMLSelectElement;
+function cargarTabla(): void {
+	const tabla = document.getElementById("tablealumnos") as HTMLTableElement;
+	const selector = document.getElementById(
+		"alumnosselector"
+	) as HTMLSelectElement;
 
-  tabla.innerHTML = "";
+	tabla.innerHTML = "";
+	selector.innerHTML = "";
 
-  let newTR: HTMLTableRowElement = document.createElement("tr");
-  let idTD: HTMLTableCellElement = document.createElement("td");
-  let nameTD: HTMLTableCellElement = document.createElement("td");
-  let markTD: HTMLTableCellElement = document.createElement("td");
+	let newTR: HTMLTableRowElement = document.createElement("tr");
+	let idTD: HTMLTableCellElement = document.createElement("td");
+	let nameTD: HTMLTableCellElement = document.createElement("td");
+	let markTD: HTMLTableCellElement = document.createElement("td");
 
-  idTD.innerHTML = "Número de lista";
-  nameTD.innerHTML = "Nombre";
-  markTD.innerHTML = "Nota";
+	idTD.innerHTML = "Número de lista";
+	nameTD.innerHTML = "Nombre";
+	markTD.innerHTML = "Nota";
 
-  newTR.appendChild(idTD);
-  newTR.appendChild(nameTD);
-  newTR.appendChild(markTD);
+	newTR.appendChild(idTD);
+	newTR.appendChild(nameTD);
+	newTR.appendChild(markTD);
 
-  tabla.appendChild(newTR);
+	tabla.appendChild(newTR);
 
-  for (let n = 0; n < cantidadDeAlumnos; n++) {
-    let newTR: HTMLTableRowElement = document.createElement("tr");
-    let idTD: HTMLTableCellElement = document.createElement("td");
-    let nameTD: HTMLTableCellElement = document.createElement("td");
-    let markTD: HTMLTableCellElement = document.createElement("td");
-    let newOption: HTMLOptionElement = document.createElement("option");
+	for (let n = 0; n < cantidadDeAlumnos; n++) {
+		let newTR: HTMLTableRowElement = document.createElement("tr");
+		let idTD: HTMLTableCellElement = document.createElement("td");
+		let nameTD: HTMLTableCellElement = document.createElement("td");
+		let markTD: HTMLTableCellElement = document.createElement("td");
+		let newOption: HTMLOptionElement = document.createElement("option");
 
-    let newID = alumnosArray[n].id.toString();
-    let newName = alumnosArray[n].nombre;
-    let newMark = alumnosArray[n].nota.toString();
-    idTD.innerHTML = newID;
-    nameTD.innerHTML = newName;
-    markTD.innerHTML = newMark;
-    newOption.innerHTML = newID + "/" + newName + "/" + newMark;
+		let newID = alumnosArray[n].id.toString();
+		let newName = alumnosArray[n].nombre;
+		let newMark = alumnosArray[n].nota.toString();
 
-    newTR.appendChild(idTD);
-    newTR.appendChild(nameTD);
-    newTR.appendChild(markTD);
-    selector.appendChild(newOption);
+		idTD.innerHTML = newID;
+		nameTD.innerHTML = newName;
+		markTD.innerHTML = newMark;
+		newOption.innerHTML = newID + "/" + newName + "/" + newMark;
 
-    tabla.appendChild(newTR);
-  }
+		newTR.appendChild(idTD);
+		newTR.appendChild(nameTD);
+		newTR.appendChild(markTD);
+		selector.appendChild(newOption);
+
+		tabla.appendChild(newTR);
+	}
 }
 
 //Buscamos al PRIMER alumno con mayor y menor nota y lo imprimimos
-function buscarMejor() {
-  let best = document.getElementById("mejoralumno") as HTMLLIElement;
-  let worst = document.getElementById("peoralumno") as HTMLLIElement;
+function buscarMejor(): void {
+	let best = document.getElementById("mejoralumno") as HTMLLIElement;
+	let worst = document.getElementById("peoralumno") as HTMLLIElement;
 
-  let mejor: Alumno = {
-    id: 10000,
-    nombre: "asd",
-    nota: -1,
-  };
-  let peor: Alumno = {
-    id: 10000,
-    nombre: "asd",
-    nota: 11,
-  };
+	let mejor: Alumno = {
+		id: 10000,
+		nombre: "asd",
+		nota: -1,
+	};
+	let peor: Alumno = {
+		id: 10000,
+		nombre: "asd",
+		nota: 11,
+	};
 
-  alumnosArray.forEach((element) => {
-    if (element.nota < peor.nota) {
-      peor = element;
-    }
+	alumnosArray.forEach((element) => {
+		if (element.nota < peor.nota) {
+			peor = element;
+		}
 
-    if (element.nota > mejor.nota) {
-      mejor = element;
-    }
+		if (element.nota > mejor.nota) {
+			mejor = element;
+		}
 
-    best.innerHTML = "nº " + mejor.id + "/" + mejor.nombre + "/" + mejor.nota;
-    worst.innerHTML = "nº " + peor.id + "/" + peor.nombre + "/" + peor.nota;
-  });
+		best.innerHTML = "nº " + mejor.id + "/" + mejor.nombre + "/" + mejor.nota;
+		worst.innerHTML = "nº " + peor.id + "/" + peor.nombre + "/" + peor.nota;
+	});
 }
 
-function buscarAlumno() {
-  //Obtenemos los elementos
-  let inputName = document.getElementById(
-    "inputnametosearch"
-  ) as HTMLInputElement;
+//Buscamos en la lista strings iguales al del cajón
+function buscarAlumno(): void{
+	//Obtenemos los elementos
+	let inputName = document.getElementById(
+		"inputnametosearch"
+	) as HTMLInputElement;
 
-  let listOfFound = document.getElementById("foundalumnos") as HTMLUListElement;
-  //Vacío el elemento de salida
-  listOfFound.innerHTML = "";
+	let listOfFound = document.getElementById("foundalumnos") as HTMLUListElement;
+	//Vacío el elemento de salida
+	listOfFound.innerHTML = "";
 
-  //Genero una lista de coincidencias
-  let newAlumnsList: Alumno[] = [];
-  let nameToSearch: string = inputName.value;
+	//Genero una lista de coincidencias
+	let newAlumnsList: Alumno[] = [];
+	let nameToSearch: string = inputName.value;
 
-  alumnosArray.forEach((element) => {
-    if (nameToSearch == element.nombre) {
-      newAlumnsList.push(element);
-    }
-  });
+	alumnosArray.forEach((element) => {
+		if (nameToSearch == element.nombre) {
+			newAlumnsList.push(element);
+		}
+	});
 
-  //Si la lista de coincidencias tiene alguna, la imprimimos
-  if (newAlumnsList.length > 0) {
-    newAlumnsList.forEach((element) => {
-      let newLI = document.createElement("li");
-      let newAlumnString =
-        "Nº: " + element.id + "/" + element.nombre + "/Nota: " + element.nota;
+	//Si la lista de coincidencias tiene alguna, la imprimimos
+	if (newAlumnsList.length > 0) {
+		newAlumnsList.forEach((element) => {
+			let newLI = document.createElement("li");
+			let newAlumnString =
+				"Nº: " + element.id + "/" + element.nombre + "/Nota: " + element.nota;
 
-      newLI.innerHTML = newAlumnString;
-      listOfFound.appendChild(newLI);
-    });
-  } else {
-    let newLI = document.createElement("li");
-    let failMsg: string =
-      "No se ha encontrado ningún alumno con el nombre introducido (" +
-      nameToSearch +
-      ")";
+			newLI.innerHTML = newAlumnString;
+			listOfFound.appendChild(newLI);
+		});
+	} else {
+		let newLI = document.createElement("li");
+		let failMsg: string =
+			"No se ha encontrado ningún alumno con el nombre introducido (" +
+			nameToSearch +
+			")";
 
-    listOfFound.appendChild(newLI);
-    newLI.innerHTML = failMsg;
-  }
+		listOfFound.appendChild(newLI);
+		newLI.innerHTML = failMsg;
+	}
 }
 
-function cambiarNota() {
-  let selector = document.getElementById(
-    "alumnosselector"
-  ) as HTMLSelectElement;
-  let noteInput = document.getElementById("inputnota") as HTMLInputElement;
+function cambiarNota(): void {
+	let selector = document.getElementById("alumnosselector") as HTMLSelectElement;
+	let noteInput = document.getElementById("inputnota") as HTMLInputElement;
 
-  let alumnoToEditNum: number = selector.selectedIndex;
-  let newNote: number = parseInt(noteInput.value);
+	let alumnoToEditNum: number = selector.selectedIndex;
+	let newMark: number = parseInt(noteInput.value);
+	let newList: Alumno[] = alumnosArray.map((x) => x);
+	let oldMark: number = alumnosArray[alumnoToEditNum].nota
 
-  if (newNote == undefined || newNote < 0 || newNote > 10) {
+	if (newMark < 0 || newMark > 10 || isNaN(newMark)) {
 
-    alert("La nota introducida es errónea o no se puede aplicar");
-  } else {
+		alert("La nota introducida es errónea o no se puede aplicar");
 
-    if (alumnosArray[alumnoToEditNum].nota != newNote) {
-      alumnosArray[alumnoToEditNum].nota = newNote;
+	} else if (oldMark != newMark) {
 
-      calcMedia();
-      buscarMejor();
-    }
-  }
+		alumnosArray[alumnoToEditNum].nota = newMark;
+		cargarTabla()
+		buscarMejor();
+		calcMedia();
+	}
 }
 
-function calcMedia() {
-  let outputMedia = document.getElementById("limedia") as HTMLLIElement;
-  let outputSuspensos = document.getElementById(
-    "limediasuspensos"
-  ) as HTMLLIElement;
+function calcMedia(): void {
+	let outputMedia = document.getElementById("limedia") as HTMLLIElement;
+	let outputSuspensos = document.getElementById(
+		"limediasuspensos"
+	) as HTMLLIElement;
 
-  let notaTotal: number = 0;
-  let notaTotalSus: number = 0;
-  let totalSus: number = 0;
+	let notaTotal: number = 0;
+	let notaTotalSus: number = 0;
+	let totalSus: number = 0;
 
-  alumnosArray.forEach((element) => {
-    let newNota = element.nota;
-    notaTotal += newNota;
+	alumnosArray.forEach((element) => {
+		let newNota = element.nota;
+		notaTotal += newNota;
 
-    if (newNota < 5) {
-      notaTotalSus += newNota;
-      totalSus++;
-    }
+		if (newNota < 5) {
+			notaTotalSus += newNota;
+			totalSus++;
+		}
 
-    outputMedia.innerHTML = "Media total: " + notaTotal / cantidadDeAlumnos;
-    outputSuspensos.innerHTML = "Media suspensos: " + notaTotalSus / totalSus;
-  });
+		outputMedia.innerHTML = "Media total: " + notaTotal / cantidadDeAlumnos;
+		outputSuspensos.innerHTML = "Media suspensos: " + notaTotalSus / totalSus;
+	});
 }
 
-function ordernarPorNombre(direccion: number) {
-  console.log(alumnosArray);
+function ordernarPorNombre(direccion: number): void {
+	console.log(alumnosArray);
 }

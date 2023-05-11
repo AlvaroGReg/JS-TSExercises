@@ -79,6 +79,7 @@ function cargarTabla() {
     var tabla = document.getElementById("tablealumnos");
     var selector = document.getElementById("alumnosselector");
     tabla.innerHTML = "";
+    selector.innerHTML = "";
     var newTR = document.createElement("tr");
     var idTD = document.createElement("td");
     var nameTD = document.createElement("td");
@@ -171,16 +172,17 @@ function cambiarNota() {
     var selector = document.getElementById("alumnosselector");
     var noteInput = document.getElementById("inputnota");
     var alumnoToEditNum = selector.selectedIndex;
-    var newNote = parseInt(noteInput.value);
-    if (newNote == undefined || newNote < 0 || newNote > 10) {
+    var newMark = parseInt(noteInput.value);
+    var newList = alumnosArray.map(function (x) { return x; });
+    var oldMark = alumnosArray[alumnoToEditNum].nota;
+    if (newMark < 0 || newMark > 10 || isNaN(newMark)) {
         alert("La nota introducida es errónea o no se puede aplicar");
     }
-    else {
-        if (alumnosArray[alumnoToEditNum].nota != newNote) {
-            alumnosArray[alumnoToEditNum].nota = newNote;
-            calcMedia();
-            buscarMejor();
-        }
+    else if (oldMark != newMark) {
+        alumnosArray[alumnoToEditNum].nota = newMark;
+        cargarTabla();
+        buscarMejor();
+        calcMedia();
     }
 }
 function calcMedia() {
