@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Alumnos</title>
+  </head>
+  <body>
+
+    <div>
+
+      <h1>Lista de alumnos</h1>
+
+      <div class="listcontainer">
+
+        <table id="tablealumnos">
+        </table>
+        <button onclick="cargarTabla()">Recargar</button>
+
+      </div>
+    </div>
+
+    <div>
+
+      <div>
+
+        <h2>Mejor/PeorALumno</h2>
+        <ul>
+            <li id="mejoralumno">Mejoralumno</li>
+            <li id="peoralumno">Peoralumno</li>
+        </ul>
+
+      </div>
+
+      <div>
+
+        <h2>Nota media</h2>
+
+        <ul>
+          <li id="limedia">Mediageneral</li>
+          <li id="limediasuspensos">Mediasuspensos</li>
+        </ul>
+
+      </div>
+
+      <div>
+
+        <h2>Buscar alumno*</h2>
+        <span>*tenga en cuenta que puede haber nombres repetidos, guíese por el número en la lista</span><br>
+        <input type="text" id="inputnametosearch" />
+        <button onclick="buscarAlumno()">Buscar alumno</button>
+        <ul id="foundalumnos"></ul>
+
+      </div>
+    </div>
+
+    <div>
+      <form>
+        <h2>Actualizar notas</h2>
+        <select name="alumnosselector" id="alumnosselector"></select>
+        <label id="labelnombre"></label>
+        <label id="labelnota"></label>
+        <input type="number" id="inputnota" />
+        <button onclick="cambiarNota()">Editar nota</button>
+
+      </form>
+    </div>
+  </body>
+  <script src="eje25.js"></script>
+</html>
