@@ -9,6 +9,9 @@ f-Alumno con peores notas*/
 
 //Declaro lo que es un Alumno y creo una lista de 50 nombres
 type Alumno = { id: number; nombre: string; nota: number };
+
+//codigo comentado para rellenar la lista por API
+/*
 const nombres: string[] = [
 	"Juan",
 	"Carlos",
@@ -75,6 +78,14 @@ for (let n = 0; n < cantidadDeAlumnos; n++) {
 
 	alumnosArray[n] = newAlumno;
 }
+*/
+//API CONSULTA:
+let alumnosArray: Alumno[]
+const cantidadDeAlumnos: number	= 20
+
+fetch('https://peppered-wide-bear.glitch.me/getlist?num='+cantidadDeAlumnos)
+	.then(response => response.json())
+	.then(data => {alumnosArray = data})
 
 //Se ejecuta la iniciar el programa
 cargarTabla();
