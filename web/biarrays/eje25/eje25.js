@@ -84,6 +84,9 @@ function cargarTabla() {
     var idTD = document.createElement("td");
     var nameTD = document.createElement("td");
     var markTD = document.createElement("td");
+    idTD.setAttribute('onclick', "sortTable('id')");
+    nameTD.setAttribute('onclick', "sortTable('nombre')");
+    markTD.setAttribute('onclick', "sortTable('nota')");
     idTD.innerHTML = "Número de lista";
     nameTD.innerHTML = "Nombre";
     markTD.innerHTML = "Nota";
@@ -211,9 +214,17 @@ function calcMedia() {
         outputSuspensos.innerHTML = "Media suspensos: " + notaTotalSus / totalSus;
     });
 }
-/* The `ordernarPorNombre` function is declared but not implemented. It takes a `direccion` parameter
-of type `number` and returns `void`. The function logs the `alumnosArray` to the console, but it
-does not actually sort the array by name as the name suggests. */
-function ordernarPorNombre(direccion) {
-    console.log(alumnosArray);
+function sortTable(valor) {
+    switch (valor) {
+        case 'id':
+            alumnosArray.sort(function (a, b) { return a.id - b.id; });
+            break;
+        case 'nombre':
+            alumnosArray.sort(function (a, b) { return a.nombre.localeCompare(b.nombre); });
+            break;
+        case 'nota':
+            alumnosArray.sort(function (a, b) { return a.nota - b.nota; });
+            break;
+    }
+    cargarTabla();
 }

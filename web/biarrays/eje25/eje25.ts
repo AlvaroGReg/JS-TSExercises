@@ -97,7 +97,10 @@ function cargarTabla(): void {
 	let idTD: 	HTMLTableCellElement = document.createElement("td");
 	let nameTD: HTMLTableCellElement = document.createElement("td");
 	let markTD: HTMLTableCellElement = document.createElement("td");
-
+	
+	idTD.setAttribute('onclick', "sortTable('id')")
+	nameTD.setAttribute('onclick', "sortTable('nombre')")
+	markTD.setAttribute('onclick', "sortTable('nota')")
 	idTD.innerHTML 	 = "Número de lista";
 	nameTD.innerHTML = "Nombre";
 	markTD.innerHTML = "Nota";
@@ -260,9 +263,22 @@ function calcMedia(): void {
 	});
 }
 
-/* The `ordernarPorNombre` function is declared but not implemented. It takes a `direccion` parameter
-of type `number` and returns `void`. The function logs the `alumnosArray` to the console, but it
-does not actually sort the array by name as the name suggests. */
-function ordernarPorNombre(direccion: number): void {
-	console.log(alumnosArray);
+
+function sortTable(valor: string): void {
+	
+	switch (valor){
+
+		case 'id':	
+			alumnosArray.sort((a, b) => a.id - b.id);
+			break
+		case 'nombre':
+			alumnosArray.sort((a, b) => a.nombre.localeCompare(b.nombre));
+			break
+		case 'nota':
+			alumnosArray.sort((a, b) => a.nota - b.nota);
+			break
+
+	}
+	
+	cargarTabla()
 }
