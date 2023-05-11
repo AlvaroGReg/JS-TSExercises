@@ -136,6 +136,7 @@ function buscarMejor() {
         worst.innerHTML = "nº " + peor.id + "/" + peor.nombre + "/" + peor.nota;
     });
 }
+//Buscamos en la lista strings iguales al del cajón
 function buscarAlumno() {
     //Obtenemos los elementos
     var inputName = document.getElementById("inputnametosearch");
@@ -168,12 +169,16 @@ function buscarAlumno() {
         newLI.innerHTML = failMsg;
     }
 }
+/**
+ * The function changes the grade of a selected student and updates the table,
+ * calculates the new
+ * average and highlights the best student.
+ */
 function cambiarNota() {
     var selector = document.getElementById("alumnosselector");
     var noteInput = document.getElementById("inputnota");
     var alumnoToEditNum = selector.selectedIndex;
     var newMark = parseInt(noteInput.value);
-    var newList = alumnosArray.map(function (x) { return x; });
     var oldMark = alumnosArray[alumnoToEditNum].nota;
     if (newMark < 0 || newMark > 10 || isNaN(newMark)) {
         alert("La nota introducida es errónea o no se puede aplicar");
@@ -185,6 +190,10 @@ function cambiarNota() {
         calcMedia();
     }
 }
+/**
+ * The function calculates the total and average grades of a group of students, as well as the average
+ * grade of those who failed.
+ */
 function calcMedia() {
     var outputMedia = document.getElementById("limedia");
     var outputSuspensos = document.getElementById("limediasuspensos");
@@ -202,6 +211,9 @@ function calcMedia() {
         outputSuspensos.innerHTML = "Media suspensos: " + notaTotalSus / totalSus;
     });
 }
+/* The `ordernarPorNombre` function is declared but not implemented. It takes a `direccion` parameter
+of type `number` and returns `void`. The function logs the `alumnosArray` to the console, but it
+does not actually sort the array by name as the name suggests. */
 function ordernarPorNombre(direccion) {
     console.log(alumnosArray);
 }

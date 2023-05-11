@@ -63,8 +63,8 @@ const nombres: string[] = [
 ];
 
 //Hago una lista con 20 alumnos con nombres y notas aleatorias
-let cantidadDeAlumnos: number = 20;
-let alumnosArray: Alumno[] = new Array(cantidadDeAlumnos);
+let cantidadDeAlumnos:  number   = 20;
+let alumnosArray: 		Alumno[] = new Array(cantidadDeAlumnos);
 
 for (let n = 0; n < cantidadDeAlumnos; n++) {
 	let newAlumno: Alumno = {
@@ -85,20 +85,20 @@ calcMedia();
 
 //Generamos/Actualizamos datos de la tabla Y EL SELECTOR DE CAMBIAR NOTA
 function cargarTabla(): void {
-	const tabla = document.getElementById("tablealumnos") as HTMLTableElement;
-	const selector = document.getElementById(
+	const tabla 	= document.getElementById("tablealumnos") as HTMLTableElement;
+	const selector  = document.getElementById(
 		"alumnosselector"
 	) as HTMLSelectElement;
 
-	tabla.innerHTML = "";
-	selector.innerHTML = "";
+	tabla.innerHTML		= "";
+	selector.innerHTML	= "";
 
-	let newTR: HTMLTableRowElement = document.createElement("tr");
-	let idTD: HTMLTableCellElement = document.createElement("td");
+	let newTR: 	HTMLTableRowElement  = document.createElement("tr");
+	let idTD: 	HTMLTableCellElement = document.createElement("td");
 	let nameTD: HTMLTableCellElement = document.createElement("td");
 	let markTD: HTMLTableCellElement = document.createElement("td");
 
-	idTD.innerHTML = "Número de lista";
+	idTD.innerHTML 	 = "Número de lista";
 	nameTD.innerHTML = "Nombre";
 	markTD.innerHTML = "Nota";
 
@@ -135,7 +135,7 @@ function cargarTabla(): void {
 
 //Buscamos al PRIMER alumno con mayor y menor nota y lo imprimimos
 function buscarMejor(): void {
-	let best = document.getElementById("mejoralumno") as HTMLLIElement;
+	let best  = document.getElementById("mejoralumno") as HTMLLIElement;
 	let worst = document.getElementById("peoralumno") as HTMLLIElement;
 
 	let mejor: Alumno = {
@@ -158,13 +158,13 @@ function buscarMejor(): void {
 			mejor = element;
 		}
 
-		best.innerHTML = "nº " + mejor.id + "/" + mejor.nombre + "/" + mejor.nota;
+		best.innerHTML  = "nº " + mejor.id + "/" + mejor.nombre + "/" + mejor.nota;
 		worst.innerHTML = "nº " + peor.id + "/" + peor.nombre + "/" + peor.nota;
 	});
 }
 
 //Buscamos en la lista strings iguales al del cajón
-function buscarAlumno(): void{
+function buscarAlumno(): void {
 	//Obtenemos los elementos
 	let inputName = document.getElementById(
 		"inputnametosearch"
@@ -175,8 +175,8 @@ function buscarAlumno(): void{
 	listOfFound.innerHTML = "";
 
 	//Genero una lista de coincidencias
-	let newAlumnsList: Alumno[] = [];
-	let nameToSearch: string = inputName.value;
+	let newAlumnsList: Alumno[]	= [];
+	let nameToSearch:  string 	= inputName.value;
 
 	alumnosArray.forEach((element) => {
 		if (nameToSearch == element.nombre) {
@@ -206,14 +206,18 @@ function buscarAlumno(): void{
 	}
 }
 
+/**
+ * The function changes the grade of a selected student and updates the table,
+ * calculates the new
+ * average and highlights the best student.
+ */
 function cambiarNota(): void {
-	let selector = document.getElementById("alumnosselector") as HTMLSelectElement;
+	let selector  = document.getElementById("alumnosselector") as HTMLSelectElement;
 	let noteInput = document.getElementById("inputnota") as HTMLInputElement;
 
-	let alumnoToEditNum: number = selector.selectedIndex;
-	let newMark: number = parseInt(noteInput.value);
-	let newList: Alumno[] = alumnosArray.map((x) => x);
-	let oldMark: number = alumnosArray[alumnoToEditNum].nota
+	let alumnoToEditNum:	number = selector.selectedIndex;
+	let newMark: 			number = parseInt(noteInput.value);
+	let oldMark: 			number = alumnosArray[alumnoToEditNum].nota
 
 	if (newMark < 0 || newMark > 10 || isNaN(newMark)) {
 
@@ -228,30 +232,37 @@ function cambiarNota(): void {
 	}
 }
 
+/**
+ * The function calculates the total and average grades of a group of students, as well as the average
+ * grade of those who failed.
+ */
 function calcMedia(): void {
-	let outputMedia = document.getElementById("limedia") as HTMLLIElement;
+	let outputMedia 	= document.getElementById("limedia") as HTMLLIElement;
 	let outputSuspensos = document.getElementById(
 		"limediasuspensos"
 	) as HTMLLIElement;
 
-	let notaTotal: number = 0;
-	let notaTotalSus: number = 0;
-	let totalSus: number = 0;
+	let notaTotal:		number = 0;
+	let notaTotalSus:	number = 0;
+	let totalSus:		number = 0;
 
 	alumnosArray.forEach((element) => {
-		let newNota = element.nota;
-		notaTotal += newNota;
+		let newNota	= element.nota;
+		notaTotal	+= newNota;
 
 		if (newNota < 5) {
 			notaTotalSus += newNota;
 			totalSus++;
 		}
 
-		outputMedia.innerHTML = "Media total: " + notaTotal / cantidadDeAlumnos;
-		outputSuspensos.innerHTML = "Media suspensos: " + notaTotalSus / totalSus;
+		outputMedia.innerHTML		= "Media total: " + notaTotal / cantidadDeAlumnos;
+		outputSuspensos.innerHTML	= "Media suspensos: " + notaTotalSus / totalSus;
 	});
 }
 
+/* The `ordernarPorNombre` function is declared but not implemented. It takes a `direccion` parameter
+of type `number` and returns `void`. The function logs the `alumnosArray` to the console, but it
+does not actually sort the array by name as the name suggests. */
 function ordernarPorNombre(direccion: number): void {
 	console.log(alumnosArray);
 }
