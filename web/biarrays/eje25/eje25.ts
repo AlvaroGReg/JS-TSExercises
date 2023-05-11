@@ -82,10 +82,8 @@ for (let n = 0; n < cantidadDeAlumnos; n++) {
 //API CONSULTA:
 let alumnosArray: Alumno[]
 const cantidadDeAlumnos: number	= 20
-
-fetch('https://peppered-wide-bear.glitch.me/getlist?num='+cantidadDeAlumnos)
-	.then(response => response.json())
-	.then(data => {alumnosArray = data})
+// @ts-ignore
+alumnosArray = createArray(cantidadDeAlumnos)
 
 //Se ejecuta la iniciar el programa
 cargarTabla();

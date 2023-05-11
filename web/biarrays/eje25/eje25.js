@@ -6,7 +6,9 @@ c-Media de notas
 d-Media de los suspensos
 e-Alumno con mejores notas
 f-Alumno con peores notas*/
-var nombres = [
+//codigo comentado para rellenar la lista por API
+/*
+const nombres: string[] = [
     "Juan",
     "Carlos",
     "Ana",
@@ -58,17 +60,26 @@ var nombres = [
     "Ñantonio",
     "🦄",
 ];
+
 //Hago una lista con 20 alumnos con nombres y notas aleatorias
-var cantidadDeAlumnos = 20;
-var alumnosArray = new Array(cantidadDeAlumnos);
-for (var n = 0; n < cantidadDeAlumnos; n++) {
-    var newAlumno = {
+let cantidadDeAlumnos:  number   = 20;
+let alumnosArray: 		Alumno[] = new Array(cantidadDeAlumnos);
+
+for (let n = 0; n < cantidadDeAlumnos; n++) {
+    let newAlumno: Alumno = {
         id: n + 1,
         nombre: nombres[Math.floor(Math.random() * nombres.length)],
         nota: Math.floor(Math.random() * 11),
     };
+
     alumnosArray[n] = newAlumno;
 }
+*/
+//API CONSULTA:
+var alumnosArray;
+var cantidadDeAlumnos = 20;
+// @ts-ignore
+alumnosArray = createArray(cantidadDeAlumnos);
 //Se ejecuta la iniciar el programa
 cargarTabla();
 buscarMejor();
