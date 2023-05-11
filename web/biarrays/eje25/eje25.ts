@@ -15,19 +15,19 @@ const nombres: string[] = [
 	"Ana",
 	"María",
 	"Pedro",
-	"Marta",
+	"Ñarta",
 	"Luis",
 	"Laura",
 	"Diego",
 	"Lucía",
 	"Ricardo",
-	"Isabel",
+	"Ñisabel",
 	"Jorge",
 	"Pablo",
 	"Sofía",
 	"Fernando",
 	"Natalia",
-	"Alejandro",
+	"Ñalejandro",
 	"Cristina",
 	"Esteban",
 	"Elena",
@@ -37,7 +37,7 @@ const nombres: string[] = [
 	"Raquel",
 	"Roberto",
 	"Adriana",
-	"Miguel",
+	"Ñiguel",
 	"Patricia",
 	"Manuel",
 	"Inés",
@@ -48,7 +48,7 @@ const nombres: string[] = [
 	"Andrés",
 	"Beatriz",
 	"Álvaro",
-	"Carmen",
+	"🙂",
 	"David",
 	"Clara",
 	"José",
@@ -57,9 +57,9 @@ const nombres: string[] = [
 	"Lucas",
 	"Marina",
 	"Francisco",
-	"Victoria",
-	"Antonio",
-	"Rosa",
+	"💖",
+	"Ñantonio",
+	"🦄",
 ];
 
 //Hago una lista con 20 alumnos con nombres y notas aleatorias
@@ -264,6 +264,12 @@ function calcMedia(): void {
 }
 
 
+/**
+ * The function sorts an array of students based on a selected value and then loads the sorted data
+ * into a table.
+ * @param {string} valor - a string that represents the column by which the table should be sorted. It
+ * can be either "id", "nombre", or "nota".
+ */
 function sortTable(valor: string): void {
 	
 	switch (valor){
@@ -272,7 +278,7 @@ function sortTable(valor: string): void {
 			alumnosArray.sort((a, b) => a.id - b.id);
 			break
 		case 'nombre':
-			alumnosArray.sort((a, b) => a.nombre.localeCompare(b.nombre));
+			alumnosArray.sort((a, b) => a.nombre.localeCompare(b.nombre, 'es'));
 			break
 		case 'nota':
 			alumnosArray.sort((a, b) => a.nota - b.nota);

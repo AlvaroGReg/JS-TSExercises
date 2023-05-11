@@ -12,19 +12,19 @@ var nombres = [
     "Ana",
     "María",
     "Pedro",
-    "Marta",
+    "Ñarta",
     "Luis",
     "Laura",
     "Diego",
     "Lucía",
     "Ricardo",
-    "Isabel",
+    "Ñisabel",
     "Jorge",
     "Pablo",
     "Sofía",
     "Fernando",
     "Natalia",
-    "Alejandro",
+    "Ñalejandro",
     "Cristina",
     "Esteban",
     "Elena",
@@ -34,7 +34,7 @@ var nombres = [
     "Raquel",
     "Roberto",
     "Adriana",
-    "Miguel",
+    "Ñiguel",
     "Patricia",
     "Manuel",
     "Inés",
@@ -45,7 +45,7 @@ var nombres = [
     "Andrés",
     "Beatriz",
     "Álvaro",
-    "Carmen",
+    "🙂",
     "David",
     "Clara",
     "José",
@@ -54,9 +54,9 @@ var nombres = [
     "Lucas",
     "Marina",
     "Francisco",
-    "Victoria",
-    "Antonio",
-    "Rosa",
+    "💖",
+    "Ñantonio",
+    "🦄",
 ];
 //Hago una lista con 20 alumnos con nombres y notas aleatorias
 var cantidadDeAlumnos = 20;
@@ -214,13 +214,19 @@ function calcMedia() {
         outputSuspensos.innerHTML = "Media suspensos: " + notaTotalSus / totalSus;
     });
 }
+/**
+ * The function sorts an array of students based on a selected value and then loads the sorted data
+ * into a table.
+ * @param {string} valor - a string that represents the column by which the table should be sorted. It
+ * can be either "id", "nombre", or "nota".
+ */
 function sortTable(valor) {
     switch (valor) {
         case 'id':
             alumnosArray.sort(function (a, b) { return a.id - b.id; });
             break;
         case 'nombre':
-            alumnosArray.sort(function (a, b) { return a.nombre.localeCompare(b.nombre); });
+            alumnosArray.sort(function (a, b) { return a.nombre.localeCompare(b.nombre, 'es'); });
             break;
         case 'nota':
             alumnosArray.sort(function (a, b) { return a.nota - b.nota; });
