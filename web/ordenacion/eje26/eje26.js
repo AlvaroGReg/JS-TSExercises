@@ -1,6 +1,11 @@
 var tvList = new Array(5);
 fillArray();
 printTable();
+/**
+ * The function prints a table with information about TV products,
+ * including their name, brand,
+ * shipping cost, and price.
+ */
 function printTable() {
     var table = document.getElementById('tvtable');
     var newRow = document.createElement('tr');
@@ -38,6 +43,13 @@ function printTable() {
         table.appendChild(newRow);
     });
 }
+/**
+ * The function sorts a list of TVs based on a given type (name, brand, or price)
+ * and prints the sorted table.
+ * @param {string} type - a string that determines the type of sorting to be
+ * performed on the "tvList"
+ * array. It can be either "name", "marca", or "precio".
+ */
 function ordenarTabla(type) {
     switch (type) {
         case 'name':
@@ -52,6 +64,9 @@ function ordenarTabla(type) {
     }
     printTable();
 }
+/**
+ * The function fills an array with objects representing different televisions.
+ */
 function fillArray() {
     tvList[0] = {
         id: 1,
