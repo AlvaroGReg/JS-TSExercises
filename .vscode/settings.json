@@ -1,4 +1,9 @@
 {
     "editor.insertSpaces": false,
-    "editor.detectIndentation": false
+	"editor.detectIndentation": false,
+	"editor.minimap.enabled": false,
+	"workbench.iconTheme": "material-icon-theme",
+	"workbench.sideBar.location": "right",
+	"workbench.statusBar.visible": false,
+	"prettier.semi": false
 }
