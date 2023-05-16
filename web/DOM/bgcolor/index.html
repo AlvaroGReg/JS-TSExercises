@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<button onclick="changecolor()">Random color</button>
+</body>
+<script>
+	
+	const colorsArray = ["#ffd700", "#5e2129", "#ffddhh", "#5e2100", "#aad700", "#5e7829", "#ffaacc", "#5e0099", "#dd7e00", "#olive"]
+
+	function changecolor(){
+
+	document.bgColor = colorsArray[parseInt((Math.random()*colorsArray.length),10)]
+}
+</script>
+</html>
