@@ -105,29 +105,47 @@ function checkTel(phoneNumber) {
 }
 
 function checkDate(date) {
-	const dateRegex = /^(\d{2})[-./](\d{2})[-./](\d{4})$/
-
+	const dateRegex = /^(\d{2})[-./](\d{2})[-./](\d{4})$/;
+  
 	if (!dateRegex.test(date.trim())) {
-		alert(
-			"El formato de fecha es inválido. Debe tener el formato dd/mm/yyyy."
-		)
-		return false
+	  alert('El formato de fecha es inválido. Debe tener el formato dd/mm/yyyy.');
+	  return false;
 	}
-
-	const [, day, month, year] = date.match(dateRegex)
-
-	const parsedDay = parseInt(day, 10)
-	const parsedMonth = parseInt(month, 10)
-
+  
+	const [, day, month, year] = date.match(dateRegex);
+  
+	const parsedDay = parseInt(day, 10);
+	const parsedMonth = parseInt(month, 10);
+	const parsedYear = parseInt(year, 10);
+  
 	if (parsedDay <= 0 || parsedDay > 31) {
-		alert("El día de la fecha debe ser mayor que 0 y menor o igual que 31.")
-		return false
+	  alert('El día de la fecha debe ser mayor que 0 y menor o igual que 31.');
+	  return false;
 	}
-
+  
 	if (parsedMonth <= 0 || parsedMonth > 12) {
-		alert("El mes de la fecha debe ser mayor que 0 y menor o igual que 12.")
-		return false
+	  alert('El mes de la fecha debe ser mayor que 0 y menor o igual que 12.');
+	  return false;
 	}
-
-	return true
-}
+  
+	if (
+	  (parsedMonth === 4 || parsedMonth === 6 || parsedMonth === 9 || parsedMonth === 11) &&
+	  parsedDay > 30
+	) {
+	  alert('El mes especificado tiene 30 días como máximo.');
+	  return false;
+	}
+  
+	if (parsedMonth === 2) {
+	  const isLeapYear = (parsedYear % 4 === 0 && parsedYear % 100 !== 0) || parsedYear % 400 === 0;
+	  const maxDays = isLeapYear ? 29 : 28;
+  
+	  if (parsedDay > maxDays) {
+		alert('Febrero tiene ' + maxDays + ' días en el año especificado.');
+		return false;
+	  }
+	}
+  
+	return true;
+  }
+  
