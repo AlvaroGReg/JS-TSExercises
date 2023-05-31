@@ -1,48 +1,73 @@
-
 // Array de direcciones de imagen
-const images = [
-  "img/1.jpg",
-  "img/2.jpg",
-  "img/3.jpg",
-  "img/8.jpg"
-];
+const images = ["img/1.jpg", "img/2.jpg", "img/3.jpg", "img/4.jpg", "img/5.jpg", "img/6.jpg", "img/7.jpg", "img/8.jpg"]
 
-var currentIndex = 0;
-const imageElement = document.getElementById("image");
-const prevButton = document.getElementById("prevBtn");
-const nextButton = document.getElementById("nextBtn");
-var timer;
+var currentIndex = 0
+const imageElement = document.getElementById("image")
+const prevButton = document.getElementById("prevBtn")
+const nextButton = document.getElementById("nextBtn")
+const thumbnailContainer = document.getElementById("thumbnailContainer")
+var timer
 
-// Función para cambiar la imagen
+/**
+ * The function changes the source of an image element based on the index passed as a parameter and
+ * updates the thumbnails.
+ * @param index - The index parameter is an integer value that represents the index of the image to be
+ * displayed. It is used to access the corresponding image URL from the images array and update the
+ * imageElement's src attribute with it.
+ */
 const changeImage = (index) => {
-  imageElement.src = images[index];
-  resetTimer();
+	currentIndex = index
+	imageElement.src = images[currentIndex]
+	resetTimer()
+	updateThumbnails()
 }
 
-// Función para ir a la imagen anterior
-const  previousImage = () => {
-  currentIndex = (currentIndex === 0) ? images.length - 1 : currentIndex - 1;
-  changeImage(currentIndex);
+const previousImage = () => {
+	currentIndex = currentIndex === 0 ? images.length - 1 : currentIndex - 1
+	changeImage(currentIndex)
 }
 
-// Función para ir a la imagen siguiente
 const nextImage = () => {
-  currentIndex = (currentIndex === images.length - 1) ? 0 : currentIndex + 1;
-  changeImage(currentIndex);
+	currentIndex = currentIndex === images.length - 1 ? 0 : currentIndex + 1
+	changeImage(currentIndex)
 }
 
 // reset timer
 const resetTimer = () => {
-  clearInterval(timer);
-  timer = setInterval(nextImage, 2000);
+	clearInterval(timer)
+	timer = setInterval(nextImage, 2000)
 }
 
-prevButton.addEventListener("click", function() {
-  previousImage();
-});
+/**
+ * The function updates the thumbnails displayed on a webpage by creating and appending image elements
+ * to a container.
+ */
+const updateThumbnails = () => {
+	thumbnailContainer.innerHTML = ""
+	for (var i = 0; i < images.length; i++) {
+		var thumbnail = document.createElement("img")
+		thumbnail.src = images[i]
+		thumbnail.classList.add("thumbnail")
+		if (i === currentIndex) {
+			thumbnail.classList.add("current")
+		}
+		thumbnail.addEventListener("click", thumbnailClickHandler(i))
+		thumbnailContainer.appendChild(thumbnail)
+	}
+}
 
-nextButton.addEventListener("click", function() {
-  nextImage();
-});
+const thumbnailClickHandler = (index) => {
+	return function() {
+	  changeImage(index);
+	};
+  }
 
-resetTimer();
+prevButton.addEventListener("click", function () {
+	previousImage()
+})
+
+nextButton.addEventListener("click", function () {
+	nextImage()
+})
+
+resetTimer()
